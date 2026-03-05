@@ -7,10 +7,10 @@ export function Navbar({ children }: { children: React.ReactNode }) {
   const { user, logout } = useContext(AuthContext);
   return (
     <>
-      <nav className="bg-white border-gray-200 px-4 sm:px-6 py-2.5 rounded dark:bg-gray-800">
+      <nav className="bg-gray-800 border-gray-200 px-4 sm:px-6 py-2.5 rounded dark:bg-gray-800">
         <div className="max-w-5xl mx-auto flex flex-wrap justify-between items-center">
           <Link href="/" className="flex items-center">
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="self-center text-xl font-semibold whitespace-nowrap text-white dark:text-white">
               Chat App
             </span>
           </Link>
@@ -52,7 +52,7 @@ export function Navbar({ children }: { children: React.ReactNode }) {
               <li>
                 <Link
                   href="/"
-                  className="block py-2 pr-4 pl-3 text-black md:p-0 dark:text-white"
+                  className="block py-2 pr-4 pl-3 text-white md:p-0 dark:text-white"
                   aria-current="page"
                 >
                   Chats
@@ -62,7 +62,7 @@ export function Navbar({ children }: { children: React.ReactNode }) {
                 <li>
                   <Link
                     href="/login"
-                    className="block py-2 pr-4 pl-3 text-black md:p-0 dark:text-white"
+                    className="block py-2 pr-4 pl-3 text-white md:p-0 dark:text-white"
                   >
                     Login
                   </Link>
@@ -71,7 +71,7 @@ export function Navbar({ children }: { children: React.ReactNode }) {
                 <>
                   <span className="text-white">Logged in: {user.username}</span>
                   <button
-                    className="block py-2 pr-4 pl-3 text-black md:p-0 dark:text-white"
+                    className="block py-2 pr-4 pl-3 text-white md:p-0 dark:text-white"
                     onClick={logout}
                   >
                     Logout
