@@ -2,9 +2,11 @@
 import Link from "next/link";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
+import { NotificationContext } from "../contexts/NotificationContext";
 
 export function Navbar({ children }: { children: React.ReactNode }) {
   const { user, logout } = useContext(AuthContext);
+  const { unreadMessageCount } = useContext(NotificationContext);
   return (
     <>
       <nav className="bg-gray-800 border-gray-200 px-4 sm:px-6 py-2.5 rounded dark:bg-gray-800">
@@ -56,6 +58,22 @@ export function Navbar({ children }: { children: React.ReactNode }) {
                   aria-current="page"
                 >
                   Chats
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/conversations"
+                  className="block py-2 pr-4 pl-3 text-white md:p-0 dark:text-white"
+                  aria-current="page"
+                >
+                  Active Conversations
+                  {unreadMessageCount > 0 && (
+                    <span className="ml-2 inline-flex items-center justify-center h-6 w-6 rounded-full bg-white">
+                      <span className="text-xs font-medium leading-none text-gray-800">
+                        {unreadMessageCount}
+                      </span>
+                    </span>
+                  )}
                 </Link>
               </li>
               {!user ? (
